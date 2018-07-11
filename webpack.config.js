@@ -1,6 +1,7 @@
 // Plugins
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = (env, argv) => ({
     entry: "./src/index.tsx",
@@ -35,16 +36,23 @@ module.exports = (env, argv) => ({
             {
                 test: /\.scss$/,
                 use: [
-                    // fallback to style-loader in development
-                    argv !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
+                    'style-loader',
+                    'resolve-url-loader',
+                    MiniCssExtractPlugin.loader,
                     "css-loader",
+                    "postcss-loader",
                     "sass-loader"
                 ]
             },
             {
-                enforce: "pre",
-                test: /\.js$/,
-                loader: "source-map-loader"
+                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'assets/fonts/'
+                    }
+                }]
             }
         ]
     },
@@ -56,6 +64,10 @@ module.exports = (env, argv) => ({
         new MiniCssExtractPlugin({
             filename: "[name].css",
             chunkFilename: "[id].css"
-        })
+        }),
+        new CopyWebpackPlugin([{
+            from: 'src/assets',
+            to: 'assets'
+        }]) 
     ]
 });

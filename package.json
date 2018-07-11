@@ -1,5 +1,5 @@
 {
-  "name": "typescript-react-starter",
+  "name": "react-typescript-starter",
   "version": "1.0.0",
   "description": "React starter with Typescript",
   "main": "src/index.tsx",
@@ -25,9 +25,6 @@
     "IE 10"
   ],
   "dependencies": {
-    "@types/react": "^16.4.6",
-    "@types/react-dom": "^16.0.6",
-    "@types/react-redux": "^6.0.4",
     "font-awesome": "^4.7.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
@@ -37,6 +34,9 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
+    "@types/react": "^16.4.6",
+    "@types/react-dom": "^16.0.6",
+    "@types/react-redux": "^6.0.4",
     "@types/react-router-dom": "^4.2.7",
     "autoprefixer": "^8.6.5",
     "awesome-typescript-loader": "^5.2.0",

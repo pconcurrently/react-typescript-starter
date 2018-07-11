@@ -37,7 +37,6 @@ module.exports = (env, argv) => ({
                 test: /\.scss$/,
                 use: [
                     'style-loader',
-                    'resolve-url-loader',
                     MiniCssExtractPlugin.loader,
                     "css-loader",
                     "postcss-loader",

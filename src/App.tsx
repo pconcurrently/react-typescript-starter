@@ -12,7 +12,7 @@ class App extends React.Component<{}> {
     }
     render() {
         return (
-            <div className="wrapper">
+            <div className="container">
                 <Header title="React Typescript Starter" />
                 <Switch>
                     <Route exact path="/" component={ToDoList}></Route>

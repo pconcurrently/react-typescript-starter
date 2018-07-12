@@ -96,7 +96,7 @@
         "forin": false,
         "member-access": false, // [true, "no-public"]
         "no-conditional-assignment": false,
-        "no-console": true,
+        "no-console": false,
         "no-debugger": false,
         "no-empty-interface": false,
         "no-eval": false,

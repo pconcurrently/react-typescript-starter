@@ -12,7 +12,7 @@ export const collapseSidebar = () => {
             type: COLLAPSE_SIDEBAR
         });
     };
-}
+};
 
 /* SELECTORS */
 
@@ -28,4 +28,4 @@ export const utilsReducer = (state = initialState, action: {type: string}) => {
         default:
             return state;
     }
-}
+};

@@ -1,7 +1,7 @@
 // Plugins
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
     mode: "development",
@@ -52,18 +52,25 @@ module.exports = {
                         outputPath: 'assets/fonts/'
                     }
                 }]
+            },
+            {
+                test: /\.(png|jpg|ico)?$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: './'
+                    }
+                }]
             }
         ]
     },
     plugins: [
+        new FaviconsWebpackPlugin('./src/assets/images/logo.png'),
         new HtmlWebPackPlugin({
             template: "./src/index.html",
             filename: "./index.html"
         }),
-        new FaviconsWebpackPlugin('./src/assets/images/logo.png'),
         new FriendlyErrorsWebpackPlugin()
-    ],
-    devServer: {
-        quiet: true,
-    },
+    ]
 };

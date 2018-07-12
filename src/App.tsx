@@ -1,8 +1,11 @@
 import * as React from 'react';
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 
+import {
+    Container
+} from 'reactstrap';
 import Header from './components/Layout/Header';
-import ToDoList from './components/ToDoList';
+import TodoList from './components/TodoList';
 
 import './scss/App.scss';
 
@@ -12,11 +15,13 @@ class App extends React.Component<{}> {
     }
     render() {
         return (
-            <div className="container">
-                <Header title="React Typescript Starter" />
-                <Switch>
-                    <Route exact path="/" component={ToDoList}></Route>
-                </Switch>
+            <div className="page-wrapper">
+                <Header title="React Starter" />
+                <Container>
+                    <Switch>
+                        <Route exact path="/" component={TodoList}></Route>
+                    </Switch>
+                </Container>
             </div>
         );
     }

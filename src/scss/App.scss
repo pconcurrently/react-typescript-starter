@@ -2,11 +2,9 @@
 $fa-font-path: "~font-awesome/fonts";
 @import '~font-awesome/scss/font-awesome';
 
-@import "~bootstrap/scss/bootstrap";
+@import '~bootstrap/scss/bootstrap';
+@import '~normalize.css/normalize.css';
 
+@import "_components/components";
 
-
-.wrapper {
-    background-color: #ddd;
-    display: flex;
-}
+@import './todo-item.scss';

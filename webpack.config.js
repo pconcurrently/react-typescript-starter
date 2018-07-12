@@ -1,9 +1,10 @@
 // Plugins
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
-module.exports = (env, argv) => ({
+module.exports = {
+    mode: "development",
     entry: "./src/index.tsx",
     output: {
         filename: "bundle.js",
@@ -37,7 +38,6 @@ module.exports = (env, argv) => ({
                 test: /\.scss$/,
                 use: [
                     'style-loader',
-                    MiniCssExtractPlugin.loader,
                     "css-loader",
                     "postcss-loader",
                     "sass-loader"
@@ -60,13 +60,10 @@ module.exports = (env, argv) => ({
             template: "./src/index.html",
             filename: "./index.html"
         }),
-        new MiniCssExtractPlugin({
-            filename: "[name].css",
-            chunkFilename: "[id].css"
-        }),
-        new CopyWebpackPlugin([{
-            from: 'src/assets',
-            to: 'assets'
-        }]) 
-    ]
-});
+        new FaviconsWebpackPlugin('./src/assets/images/logo.png'),
+        new FriendlyErrorsWebpackPlugin()
+    ],
+    devServer: {
+        quiet: true,
+    },
+};

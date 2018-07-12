@@ -1,9 +1,4 @@
 import * as React from 'react';
-// import withStyles from 'isomorphic-style-loader/lib/withStyles';
-// import s from './Header.scss';
-
-// console.log(s);
-
 import {
     Collapse,
     Container,
@@ -43,7 +38,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
         const { title } = this.props;
         return (
            <div>
-                <Navbar color="light" light expand="md" className="a">
+                <Navbar color="light" light expand="md" className="shadow1">
                     <Container>
                         <NavbarBrand href="/">{title}</NavbarBrand>
                         <NavbarToggler onClick={this.toggle} />

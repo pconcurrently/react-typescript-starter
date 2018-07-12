@@ -1,10 +1,7 @@
-// Plugins
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
-    mode: "development",
     entry: "./src/index.tsx",
     output: {
         filename: "bundle.js",
@@ -17,7 +14,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.tsx?$/,
+                test: /\.(tsx|ts)?$/,
                 exclude: /node_modules/,
                 use: {
                     loader: "awesome-typescript-loader"
@@ -32,15 +29,6 @@ module.exports = {
                             minimize: true
                         }
                     }
-                ]
-            },
-            {
-                test: /\.scss$/,
-                use: [
-                    'style-loader',
-                    "css-loader",
-                    "postcss-loader",
-                    "sass-loader"
                 ]
             },
             {
@@ -70,7 +58,6 @@ module.exports = {
         new HtmlWebPackPlugin({
             template: "./src/index.html",
             filename: "./index.html"
-        }),
-        new FriendlyErrorsWebpackPlugin()
+        })
     ]
 };

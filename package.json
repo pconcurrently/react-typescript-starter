@@ -4,9 +4,9 @@
   "description": "React starter with Typescript",
   "main": "src/index.tsx",
   "scripts": {
-    "start": "webpack-dev-server  --open",
+    "start": "webpack-dev-server --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "dev": "webpack --config webpack.config.js",
+    "dev": "webpack --config webpack.dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

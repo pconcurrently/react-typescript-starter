@@ -10,6 +10,8 @@ import {
     NavLink
 } from 'reactstrap';
 
+import './Header.scss';
+
 interface HeaderProps {
     title: string;
 }

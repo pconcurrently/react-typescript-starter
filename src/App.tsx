@@ -19,7 +19,7 @@ class App extends React.Component<{}> {
                 <Header title="React Starter" />
                 <Container>
                     <Switch>
-                        <Route exact path="/" component={TodoList}></Route>
+                        <Route path="/" component={TodoList}></Route>
                     </Switch>
                 </Container>
             </div>

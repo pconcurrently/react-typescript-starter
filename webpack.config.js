@@ -1,3 +1,4 @@
+const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
@@ -5,16 +6,15 @@ module.exports = {
     entry: "./src/index.tsx",
     output: {
         filename: "bundle.js",
-        path: __dirname + "/dist"
+        path: path.resolve(__dirname , 'dist')
     },
-    devtool: "source-map",
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".json"]
     },
     module: {
         rules: [
             {
-                test: /\.(tsx|ts)?$/,
+                test: /\.tsx?$/,
                 exclude: /node_modules/,
                 use: {
                     loader: "awesome-typescript-loader"

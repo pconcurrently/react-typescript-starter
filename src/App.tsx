@@ -6,6 +6,7 @@ import {
 } from 'reactstrap';
 import Header from './components/Layout/Header';
 import TodoList from './components/TodoList';
+import Dummy from './components/Dummy';
 
 import './scss/App.scss';
 
@@ -19,7 +20,8 @@ class App extends React.Component<{}> {
                 <Header title="React Starter" />
                 <Container>
                     <Switch>
-                        <Route path="/" component={TodoList}></Route>
+                        <Route exact path="/" component={TodoList}></Route>
+                        <Route path="/dummy" component={Dummy}></Route>
                     </Switch>
                 </Container>
             </div>

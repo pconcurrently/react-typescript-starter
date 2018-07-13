@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import {
     Collapse,
     Container,
@@ -42,10 +43,13 @@ class Header extends React.Component<HeaderProps, HeaderState> {
            <div>
                 <Navbar color="light" light expand="md" className="shadow1">
                     <Container>
-                        <NavbarBrand href="/">{title}</NavbarBrand>
+                        <Link className="navbar-brand" to="/">{title}</Link>
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
+                                <NavItem>
+                                    <Link className="nav-link" to="/dummy">Test React Router</Link>
+                                </NavItem>
                                 <NavItem>
                                     <NavLink href="https://github.com/shortgiraffe4/react-typescript-starter">GitHub</NavLink>
                                 </NavItem>

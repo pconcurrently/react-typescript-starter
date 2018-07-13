@@ -18,8 +18,8 @@ React Typescript Starter is a boilerplate built on top of React and Typescript u
 
 ### Demo
 https://react-typescript-starter.herokuapp.com/
-## Getting started:
-Directory layout:
+## Getting started
+Directory layout
 ```
 ├── /dist/                      # The folder for compiled output (only exists after build in production mode)
 ├── /node_modules/              # 3rd-party libraries and utilities          
@@ -43,7 +43,7 @@ Directory layout:
 ├── webpack.dev.js              # Development config for Webpack
 └── webpack.prod.js             # Production config for Webpack
 ```
-##### 1. Clone the repo:
+##### 1. Clone the repo
 `git clone git@github.com:shortgiraffe4/react-typescript-starter.git --depth 1`
 ##### 2. Install dependencies
 `npm install`
@@ -55,7 +55,7 @@ webpack-dev-server is here to do the job
 ## Deployment
 ### With heroku
 ##### 1. Install Heroku CLI
- -- Follow this instruction: https://devcenter.heroku.com/articles/heroku-cli
+Follow this instruction: https://devcenter.heroku.com/articles/heroku-cli
 ##### 2. Login to Heroku CLI
 Open your command line and run this:
 

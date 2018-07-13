@@ -13,6 +13,8 @@ React Typescript Starter is a boilerplate built on top of React and Typescript u
     - [sass-loader](https://github.com/webpack-contrib/sass-loader)
     - [postcss-loader](https://github.com/postcss/postcss-loader)
     - ...
+- [Redux](https://redux.js.org/)
+- [redux-thunk](https://github.com/reduxjs/redux-thunk)
 
 ### Demo
 https://react-typescript-starter.herokuapp.com/

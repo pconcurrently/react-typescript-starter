@@ -42,7 +42,7 @@ module.exports = {
                 }]
             },
             {
-                test: /\.(png|jpg|ico)?$/,
+                test: /\.ico?$/,
                 use: [{
                     loader: 'file-loader',
                     options: {

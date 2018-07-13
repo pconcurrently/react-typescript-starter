@@ -1,14 +1,15 @@
 import * as React from 'react';
 
-import { updateTodo } from '../../../redux/todo.redux';
+import { updateTodo, removeTodo } from '../../../redux/todo.redux';
 
+export interface Todo {
+    id: string;
+    name: string;
+    status: boolean;
+}
 interface TodoItemProps {
-    item: {
-        name: string;
-        status: boolean;
-    };
+    item: Todo;
     dispatch?: any;
-    index: number;
 }
 
 class TodoItem extends React.Component<TodoItemProps, {}> {
@@ -16,21 +17,44 @@ class TodoItem extends React.Component<TodoItemProps, {}> {
         super(props);
 
         this.onChange = this.onChange.bind(this);
+        this.removeTodo = this.removeTodo.bind(this);
     }
 
     onChange() {
-        const item = this.props.item;
-        item.status = !item.status;
-        this.props.dispatch(updateTodo(item));
+        if (!this.props.item.status) {
+            this.props.dispatch(updateTodo(this.props.item));
+        }
+    }
+
+    removeTodo() {
+        this.props.dispatch(removeTodo(this.props.item));
     }
 
     render() {
-        const { item, index } = this.props;
+        const { item } = this.props;
         return (
             <li className="todo-list__item">
                 <div className="custom-control custom-checkbox">
-                    <input type="checkbox" className="custom-control-input" id={`cc_${index}`} checked={item.status} onChange={this.onChange}/>
-                    <label className="custom-control-label" htmlFor={`cc_${index}`}>{item.name}</label>
+                    <input
+                        type="checkbox" 
+                        className="custom-control-input"
+                        id={`cc_${item.id}`} checked={item.status}
+                        onChange={this.onChange}
+                        disabled={item.status}
+                    />
+                    <label 
+                        className="custom-control-label" 
+                        htmlFor={`cc_${item.id}`}
+                        title={!item.status ? 'Complete this todo' : ''}
+                        style={!item.status ? { cursor: "pointer" } : {}}
+                    >
+                        {item.name}
+                        <span 
+                            title="Remove this todo" 
+                            className="fa fa-close ml-1" 
+                            style={{cursor: "pointer"}}
+                            onClick={this.removeTodo}></span>
+                    </label>
                 </div>
             </li>
         );

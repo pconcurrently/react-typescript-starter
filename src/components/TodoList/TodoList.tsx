@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { addTodo, getTodo } from '../../redux/todo.redux';
+import { Todo } from './todo-item/TodoItem';
 
 import {
     Button,
@@ -11,10 +12,8 @@ import {
 import TodoItem from './todo-item';
 
 interface TodoListProps {
-    todoItemsList: {
-        name: string;
-        status: boolean;
-    }[];
+    todoItemsList: Todo[];
+    completed: Todo[];
     dispatch: any;
 }
 interface TodoState {
@@ -26,12 +25,14 @@ class TodoList extends React.Component<TodoListProps, TodoState> {
     constructor(props: any) {
         super(props);
         this.state = {
-            todoName: ''
+            todoName: '',
+            isOpen: true
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleKeyPress = this.handleKeyPress.bind(this);
         this.submitTodo = this.submitTodo.bind(this);
+        this.displayCompleted = this.displayCompleted.bind(this);
     }
 
     handleChange(e: any) {
@@ -43,6 +44,11 @@ class TodoList extends React.Component<TodoListProps, TodoState> {
         if (e.key === 'Enter') {
             this.submitTodo();
         }
+    }
+    displayCompleted() {
+        this.setState({
+            isOpen: !this.state.isOpen
+        })
     }
 
     submitTodo() {
@@ -60,7 +66,7 @@ class TodoList extends React.Component<TodoListProps, TodoState> {
     }
 
     render() {
-        const { todoItemsList, dispatch } = this.props;
+        const { todoItemsList, completed, dispatch } = this.props;
 
         return (
             <div>
@@ -86,10 +92,21 @@ class TodoList extends React.Component<TodoListProps, TodoState> {
                     </Col>
                 </Row>
                 <ul>
-                    {todoItemsList && todoItemsList.length ? todoItemsList.map((item, index) => (
+                    {todoItemsList && todoItemsList.length ? todoItemsList.map((item) => item && !item.status ? (
                         <TodoItem
-                            index={index}
-                            key={index}
+                            key={item.id}
+                            item={item}
+                            dispatch={dispatch}
+                        />
+                    ) : undefined) : undefined}
+                </ul>
+                {completed && completed.length ? 
+                    <Button color="info" onClick={this.displayCompleted}>{`${this.state.isOpen ? 'Hide' : 'Display'} Completed Todo`}</Button>
+                : undefined}
+                <ul className="mt-4">
+                    {this.state.isOpen && completed && completed.length ? completed.map((item) =>  (
+                        <TodoItem
+                            key={item.id}
                             item={item}
                             dispatch={dispatch}
                         />
@@ -101,7 +118,8 @@ class TodoList extends React.Component<TodoListProps, TodoState> {
 }
 
 const mapStateToProps = (state: any) => ({
-    todoItemsList: state.todo.list
+    todoItemsList: state.todo.list,
+    completed: state.todo.completedList
 });
 
 export default connect(mapStateToProps)(TodoList);

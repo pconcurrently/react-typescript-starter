@@ -111,15 +111,15 @@ export const todoReducer = (state = initialState, action: { type: string, name: 
             tempList = state.list.filter(todo => {
                 return todo.id !== action.todo.id;
             });
+            tempCompList = state.completedList.filter(todo => {
+                return todo.id !== action.todo.id;
+            });
             localStorage.setItem('todoList', JSON.stringify(tempList));
             return {
                 ...state,
-                list: tempList
+                list: tempList,
+                completedList: tempCompList
             }
-            return {
-                ...state,
-                list: tempList
-            };
         default:
             return state;
     }

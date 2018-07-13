@@ -31,10 +31,12 @@ module.exports = merge(common, {
             filename: '[name].[hash].css',
             chunkFilename: '[id].[hash].css',
         }),
-        new CopyWebpackPlugin([{
-            from: 'src/assets',
-            to: 'assets'
-        }]),
+        new CopyWebpackPlugin([
+            {
+                from: 'src/assets',
+                to: 'assets'
+            }
+        ]),
         new OptimizeCSSAssetsPlugin({}),
         new UglifyJSPlugin({
             sourceMap: true

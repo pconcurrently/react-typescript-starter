@@ -37,6 +37,7 @@ Directory layout:
 `npm install`
 ##### 3. Run the project
 `npm start`
+
 webpack-dev-server is here to do the job
 
 ## Deployment
@@ -45,12 +46,15 @@ webpack-dev-server is here to do the job
  -- Follow this instruction: https://devcenter.heroku.com/articles/heroku-cli
 ##### 2. Login to Heroku CLI
 Open your command line and run this:
+
 `heroku login`
+
 Input your account and continue.
 ##### 3. Add buildpack
 `heroku create -b https://github.com/mars/create-react-app-buildpack.git`
 ##### 4. Add heroku remote
 Firstly, go to https://dashboard.heroku.com, and create an app. Then run:
+
 `heroku git:remote -a <name_of_your_heroku_app>`
 ##### 5. Push to heroku remote
 `git push heroku master`

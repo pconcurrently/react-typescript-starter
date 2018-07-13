@@ -31,31 +31,31 @@ Directory layout:
 ├── webpack.dev.js              # Development config for Webpack
 └── webpack.prod.js             # Production config for Webpack
 ```
-1. Clone the repo:
+##### 1. Clone the repo:
 `git clone git@github.com:shortgiraffe4/react-typescript-starter.git --depth 1`
-2. Install dependencies
+##### 2. Install dependencies
 `npm install`
-3. Run the project
+##### 3. Run the project
 `npm start`
 webpack-dev-server is here to do the job
 
 ## Deployment
 ### With heroku
-1. Install Heroku CLI
-Follow this instruction: https://devcenter.heroku.com/articles/heroku-cli
-2. Login to Heroku CLI
+##### 1. Install Heroku CLI
+ -- Follow this instruction: https://devcenter.heroku.com/articles/heroku-cli
+##### 2. Login to Heroku CLI
 Open your command line and run this:
 `heroku login`
 Input your account and continue.
-3. Add buildpack
+##### 3. Add buildpack
 `heroku create -b https://github.com/mars/create-react-app-buildpack.git`
-4. Add heroku remote
+##### 4. Add heroku remote
 Firstly, go to https://dashboard.heroku.com, and create an app. Then run:
 `heroku git:remote -a <name_of_your_heroku_app>`
-5. Push to heroku remote
+##### 5. Push to heroku remote
 `git push heroku master`
 Wait.
-6. Your heroku app is now online
+##### 6. Your heroku app is now online
 `https://<name_of_your_heroku_app>.herokuapp.com/`
 
 

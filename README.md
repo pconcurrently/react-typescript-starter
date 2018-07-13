@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/shortgiraffe4/react-typescript-starter.svg?branch=master)](https://travis-ci.org/shortgiraffe4/react-typescript-starter)
 [![Dependency Status](https://david-dm.org/shortgiraffe4/react-typescript-starter.svg)](https://david-dm.org/shortgiraffe4/react-typescript-starter)
+[![devDependency Status](https://david-dm.org/shortgiraffe4/react-typescript-starter/dev-status.svg)](https://david-dm.org/shortgiraffe4/react-typescript-starter#info=devDependencies)
 [![Code Climate](https://codeclimate.com/github/shortgiraffe4/react-typescript-starter.svg)](https://codeclimate.com/github/shortgiraffe4/react-typescript-starter)
 
 React Typescript Starter is a boilerplate built on top of React and Typescript using Webpack 4.

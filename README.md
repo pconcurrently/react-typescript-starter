@@ -54,7 +54,6 @@ Firstly, go to https://dashboard.heroku.com, and create an app. Then run:
 `heroku git:remote -a <name_of_your_heroku_app>`
 ##### 5. Push to heroku remote
 `git push heroku master`
-Wait.
 ##### 6. Your heroku app is now online
 `https://<name_of_your_heroku_app>.herokuapp.com/`
 

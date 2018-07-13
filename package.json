@@ -3,6 +3,15 @@
   "version": "1.0.0",
   "description": "React starter with Typescript",
   "main": "src/index.tsx",
+  "keywords": [
+    "react",
+    "typescript",
+    "webpack",
+    "redux",
+    "redux-thunk",
+    "sass",
+    "postcss"
+  ],
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",

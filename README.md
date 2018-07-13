@@ -15,6 +15,7 @@ React Typescript Starter is a boilerplate built on top of React and Typescript u
     - ...
 - [Redux](https://redux.js.org/)
 - [redux-thunk](https://github.com/reduxjs/redux-thunk)
+- [Bootstrap v4](https://getbootstrap.com/)
 
 ### Demo
 https://react-typescript-starter.herokuapp.com/

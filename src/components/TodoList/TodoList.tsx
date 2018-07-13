@@ -64,7 +64,6 @@ class TodoList extends React.Component<TodoListProps, TodoState> {
 
         return (
             <div>
-                <h2 className="mt-4">To Do List</h2>
                 <Row className="mt-4 mb-4">
                     <Col sm={10}>
                         <Input

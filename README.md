@@ -3,7 +3,17 @@
 [![Build Status](https://travis-ci.org/shortgiraffe4/react-typescript-starter.svg?branch=master)](https://travis-ci.org/shortgiraffe4/react-typescript-starter)
 [![Dependency Status](https://david-dm.org/shortgiraffe4/react-typescript-starter.svg)](https://david-dm.org/shortgiraffe4/react-typescript-starter)
 
-React Typescript Starter is a boilerplate built on top of React and Typescript using Webpack.
+React Typescript Starter is a boilerplate built on top of React and Typescript using Webpack 4.
+### Stack
+- [React](https://reactjs.org/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Webpack 4](https://webpack.js.org/)
+    - [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin)
+    - [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin)
+    - [sass-loader](https://github.com/webpack-contrib/sass-loader)
+    - [postcss-loader](https://github.com/postcss/postcss-loader)
+    - ...
+
 ### Demo
 https://react-typescript-starter.herokuapp.com/
 ## Getting started:

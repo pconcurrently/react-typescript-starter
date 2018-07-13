@@ -1,5 +1,3 @@
-import { Dispatch } from "../../node_modules/redux";
-
 interface TodoList {
     list: {
         name: string,

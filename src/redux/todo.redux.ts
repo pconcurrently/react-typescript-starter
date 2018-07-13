@@ -24,9 +24,11 @@ export const getTodo = () => {
     return (dispatch: any) => {
         try {
             const list = JSON.parse(localStorage.getItem('todoList'));
+            const compList = JSON.parse(localStorage.getItem('compList'));
             dispatch({
                 type: GET,
-                list
+                list,
+                completedList: compList
             });
         } catch (err) {
             console.log(err);
@@ -69,7 +71,7 @@ export const removeTodo = (todo: Todo) => {
 
 
 /* REDUCER */
-export const todoReducer = (state = initialState, action: { type: string, name: string, list: Todo[], todo: Todo }) => {
+export const todoReducer = (state = initialState, action: { type: string, name: string, list: Todo[], completedList: Todo[], todo: Todo }) => {
     let tempList: Todo[];
     let tempCompList: Todo[];
     switch (action.type) {
@@ -90,7 +92,8 @@ export const todoReducer = (state = initialState, action: { type: string, name: 
         case GET:
             return {
                 ...state,
-                list: action.list || []
+                list: action.list || [],
+                completedList: action.completedList || []
             };
         case UPDATE:
             tempCompList = state.completedList || [];
@@ -102,6 +105,7 @@ export const todoReducer = (state = initialState, action: { type: string, name: 
                 return todo;
             });
             localStorage.setItem('todoList', JSON.stringify(tempList));
+            localStorage.setItem('compList', JSON.stringify(tempCompList));
             return {
                 ...state,
                 list: tempList,

@@ -1,6 +1,6 @@
 {
   "name": "react-typescript-starter",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "React starter with Typescript",
   "main": "src/index.tsx",
   "keywords": [
@@ -16,6 +16,7 @@
     "start": "webpack-dev-server --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "dev": "webpack --config webpack.dev.js",
+    "deploy": "deploy.sh $npm_package_repository_url",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,7 +28,7 @@
   "bugs": {
     "url": "https://github.com/shortgiraffe4/react-typescript-starter/issues"
   },
-  "homepage": "https://github.com/shortgiraffe4/react-typescript-starter#readme",
+  "homepage": "https://github.com/shortgiraffe4/react-typescript-starter",
   "browserslist": [
     "> 1%",
     "last 2 versions",

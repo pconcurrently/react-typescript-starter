@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 if [ -z "$1" ]
 then
   echo "Which folder do you want to deploy to GitHub Pages?"

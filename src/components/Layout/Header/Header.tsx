@@ -48,7 +48,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
                                 <NavItem>
-                                    <Link className="nav-link" to="/dummy">Test React Router</Link>
+                                    <Link className="nav-link" to="/readme">README.md</Link>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink href="https://github.com/shortgiraffe4/react-typescript-starter">GitHub</NavLink>

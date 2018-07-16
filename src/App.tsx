@@ -6,7 +6,7 @@ import {
 } from 'reactstrap';
 import Header from './components/Layout/Header';
 import TodoList from './components/TodoList';
-import Dummy from './components/Dummy';
+import Readme from './components/Readme';
 
 import './scss/App.scss';
 
@@ -21,7 +21,7 @@ class App extends React.Component<{}> {
                 <Container>
                     <Switch>
                         <Route exact path="/" component={TodoList}></Route>
-                        <Route path="/dummy" component={Dummy}></Route>
+                        <Route path="/readme" component={Readme}></Route>
                     </Switch>
                 </Container>
             </div>

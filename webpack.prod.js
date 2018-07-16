@@ -35,6 +35,10 @@ module.exports = merge(common, {
             {
                 from: 'src/assets',
                 to: 'assets'
+            },
+            {
+                from: '404.html',
+                to: './'
             }
         ]),
         new OptimizeCSSAssetsPlugin({}),

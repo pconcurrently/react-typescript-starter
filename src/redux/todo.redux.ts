@@ -34,7 +34,8 @@ export const getTodo = () => {
             console.log(err);
             dispatch({
                 type: GET,
-                list: []
+                list: [],
+                completedList: []
             });
         }
     };

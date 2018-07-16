@@ -9,13 +9,14 @@ import './assets/images/favicon.ico';
 
 import App from './App';
 
+const repo_name = REPO_NAME || '';
+
 ReactDOM.render(
     <Provider store={store}>
-        <BrowserRouter>
+        <BrowserRouter basename={`${repo_name}`}>
             <App />
         </BrowserRouter>
-    </Provider>,
-    document.getElementById("root")
+    </Provider>, document.getElementById("root")
 );
 
 

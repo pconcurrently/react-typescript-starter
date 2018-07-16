@@ -91,7 +91,7 @@ class TodoList extends React.Component<TodoListProps, TodoState> {
                         </Button>
                     </Col>
                 </Row>
-                <ul>
+                <ul className="todo-list">
                     {todoItemsList && todoItemsList.length ? todoItemsList.map((item) => item && !item.status ? (
                         <TodoItem
                             key={item.id}

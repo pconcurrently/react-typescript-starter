@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
@@ -19,6 +20,17 @@ module.exports = {
                 use: {
                     loader: "awesome-typescript-loader"
                 }   
+            },
+            {
+                test: /^404.html$/,
+                use: [
+                    {
+                        loader: "file-loader",
+                        options: {
+                            outputPath: './'
+                        }
+                    }
+                ]
             },
             {
                 test: /\.html$/,
@@ -68,6 +80,9 @@ module.exports = {
         new HtmlWebPackPlugin({
             template: "./src/index.html",
             filename: "./index.html"
+        }),
+        new webpack.DefinePlugin({
+            REPO_NAME: JSON.stringify(require("./package.json").repo_name)
         })
     ]
 };

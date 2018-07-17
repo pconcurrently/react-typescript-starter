@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "description": "React starter with Typescript",
   "main": "src/index.tsx",
-  "repo_name": "react-typescript-starter",
+  "subdirectory": "",
   "keywords": [
     "react",
     "typescript",

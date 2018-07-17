@@ -9,11 +9,11 @@ import './assets/images/favicon.ico';
 
 import App from './App';
 
-const repo_name = REPO_NAME || '';
+const subdirectory = SUBDIRECTORY || '';
 
 ReactDOM.render(
     <Provider store={store}>
-        <BrowserRouter basename={`${repo_name}`}>
+        <BrowserRouter basename={`${subdirectory}`}>
             <App />
         </BrowserRouter>
     </Provider>, document.getElementById("root")

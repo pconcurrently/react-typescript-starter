@@ -3,4 +3,4 @@ declare module "*.json" {
     export default value;
 }
 
-declare var REPO_NAME : string;
+declare var SUBDIRECTORY : string;

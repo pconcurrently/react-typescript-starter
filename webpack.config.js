@@ -77,12 +77,22 @@ module.exports = {
     },
     plugins: [
         new FaviconsWebpackPlugin('./src/assets/images/logo.png'),
-        new HtmlWebPackPlugin({
-            template: "./src/index.html",
-            filename: "./index.html"
-        }),
         new webpack.DefinePlugin({
-            REPO_NAME: JSON.stringify(require("./package.json").repo_name)
-        })
+            SUBDIRECTORY: JSON.stringify(require("./package.json").subdirectory)
+        }),
+        // Fallback to index.html by redirecting from 404.html for deploying to host with subdirectory
+        new HtmlWebPackPlugin(
+            SUBDIRECTORY ? 
+            {
+                template: "./src/index-subdirectory.html",
+                filename: "./index.html"
+            } 
+            :
+            {
+                template: "./src/index.html",
+                filename: "./index.html"
+            }
+        ),
+        
     ]
 };

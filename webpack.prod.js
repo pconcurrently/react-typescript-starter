@@ -7,6 +7,22 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const common = require('./webpack.config.js');
 
+const assets = [{
+        from: 'src/assets',
+        to: 'assets'
+    },
+    {
+        from: 'CNAME',
+        to: './'
+    }
+];
+if (packagejson.subdirectory) {
+    assets.push({
+        from: '404.html',
+        to: './'
+    });
+}
+
 module.exports = merge(common, {
     mode: 'production',
     devtool: 'source-map',
@@ -31,16 +47,7 @@ module.exports = merge(common, {
             filename: '[name].[hash].css',
             chunkFilename: '[id].[hash].css',
         }),
-        new CopyWebpackPlugin([
-            {
-                from: 'src/assets',
-                to: 'assets'
-            },
-            {
-                from: '404.html',
-                to: './'
-            }
-        ]),
+        new CopyWebpackPlugin(assets),
         new OptimizeCSSAssetsPlugin({}),
         new UglifyJSPlugin({
             sourceMap: true

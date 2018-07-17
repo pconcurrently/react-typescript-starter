@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const packagejson = require('./package.json');
 
 module.exports = {
     entry: "./src/index.tsx",
@@ -82,7 +83,7 @@ module.exports = {
         }),
         // Fallback to index.html by redirecting from 404.html for deploying to host with subdirectory
         new HtmlWebPackPlugin(
-            SUBDIRECTORY ? 
+            packagejson.subdirectory ? 
             {
                 template: "./src/index-subdirectory.html",
                 filename: "./index.html"

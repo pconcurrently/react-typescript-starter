@@ -9,11 +9,9 @@ import './assets/images/favicon.ico';
 
 import App from './App';
 
-const subdirectory = SUBDIRECTORY || '';
-
 ReactDOM.render(
     <Provider store={store}>
-        <BrowserRouter basename={`${subdirectory}`}>
+        <BrowserRouter>
             <App />
         </BrowserRouter>
     </Provider>, document.getElementById("root")

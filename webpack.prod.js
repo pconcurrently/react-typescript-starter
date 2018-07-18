@@ -3,24 +3,13 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const common = require('./webpack.config.js');
-
-const assets = [{
-        from: 'src/assets',
-        to: 'assets'
-    },
-    {
-        from: 'CNAME',
-        to: './'
-    }
-];
 
 module.exports = merge(common, {
     mode: 'production',
     devtool: 'source-map',
-     module: {
+    module: {
         rules: [
             {
                 test: /\.scss$/,
@@ -41,7 +30,6 @@ module.exports = merge(common, {
             filename: '[name].[hash].css',
             chunkFilename: '[id].[hash].css',
         }),
-        new CopyWebpackPlugin(assets),
         new OptimizeCSSAssetsPlugin({}),
         new UglifyJSPlugin({
             sourceMap: true

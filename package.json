@@ -17,7 +17,7 @@
     "start": "webpack-dev-server --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "dev": "webpack --config webpack.dev.js",
-    "deploy": "npm run build && git add dist -f && git commit --allow-empty -m \"Push to gh-pages\" && git subtree push --prefix dist origin gh-pages",
+    "deploy-gh": "npm run build && git add dist -f && git commit --allow-empty -m \"Push to gh-pages\" && git subtree push --prefix dist origin gh-pages",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

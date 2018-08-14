@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { updateTodo, removeTodo } from '../../../redux/todo.redux';
+import { removeTodo, updateTodo,  } from '../../../redux/todo.redux';
 
 export interface Todo {
     id: string;
@@ -33,26 +33,26 @@ class TodoItem extends React.Component<TodoItemProps, {}> {
     render() {
         const { item } = this.props;
         return (
-            <li className="todo-list__item">
-                <div className="custom-control custom-checkbox">
+            <li className='todo-list__item'>
+                <div className='custom-control custom-checkbox'>
                     <input
-                        type="checkbox" 
-                        className="custom-control-input"
+                        type='checkbox'
+                        className='custom-control-input'
                         id={`cc_${item.id}`} checked={item.status}
                         onChange={this.onChange}
                         disabled={item.status}
                     />
-                    <label 
-                        className="custom-control-label" 
+                    <label
+                        className='custom-control-label'
                         htmlFor={`cc_${item.id}`}
                         title={!item.status ? 'Complete this todo' : ''}
-                        style={!item.status ? { cursor: "pointer" } : {}}
+                        style={!item.status ? { cursor: 'pointer' } : {}}
                     >
                         {item.name}
-                        <span 
-                            title="Remove this todo" 
-                            className="fa fa-close ml-1" 
-                            style={{cursor: "pointer"}}
+                        <span
+                            title='Remove this todo'
+                            className='fa fa-close ml-1'
+                            style={{cursor: 'pointer'}}
                             onClick={this.removeTodo}></span>
                     </label>
                 </div>

@@ -25,7 +25,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
         super(props);
 
         this.state = {
-            isOpen: false
+            isOpen: false,
         };
 
         this.toggle = this.toggle.bind(this);
@@ -33,7 +33,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 
     toggle() {
         this.setState({
-            isOpen: !this.state.isOpen
+            isOpen: !this.state.isOpen,
         });
     }
 
@@ -41,17 +41,19 @@ class Header extends React.Component<HeaderProps, HeaderState> {
         const { title } = this.props;
         return (
            <div>
-                <Navbar color="light" light expand="md" className="shadow1">
+                <Navbar color='light' light expand='md' className='shadow1'>
                     <Container>
-                        <Link className="navbar-brand" to="/">{title}</Link>
+                        <Link className='navbar-brand' to='/'>{title}</Link>
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
-                            <Nav className="ml-auto" navbar>
+                            <Nav className='ml-auto' navbar>
                                 <NavItem>
-                                    <Link className="nav-link" to="/readme">README.md</Link>
+                                    <Link className='nav-link' to='/readme'>README.md</Link>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink href="https://github.com/shortgiraffe4/react-typescript-starter">GitHub</NavLink>
+                                    <NavLink href='https://github.com/shortgiraffe4/react-typescript-starter'>
+                                        GitHub
+                                    </NavLink>
                                 </NavItem>
                             </Nav>
                         </Collapse>

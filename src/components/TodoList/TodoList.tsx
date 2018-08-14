@@ -25,8 +25,8 @@ class TodoList extends React.Component<TodoListProps, TodoState> {
     constructor(props: any) {
         super(props);
         this.state = {
+            isOpen: true,
             todoName: '',
-            isOpen: true
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -37,7 +37,7 @@ class TodoList extends React.Component<TodoListProps, TodoState> {
 
     handleChange(e: any) {
         this.setState({
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
         });
     }
     handleKeyPress(e: any) {
@@ -47,15 +47,15 @@ class TodoList extends React.Component<TodoListProps, TodoState> {
     }
     displayCompleted() {
         this.setState({
-            isOpen: !this.state.isOpen
-        })
+            isOpen: !this.state.isOpen,
+        });
     }
 
     submitTodo() {
         if (this.state.todoName.length) {
             this.props.dispatch(addTodo(this.state.todoName));
             this.setState({
-                todoName: ''
+                todoName: '',
             });
             this.forceUpdate();
         }
@@ -70,11 +70,11 @@ class TodoList extends React.Component<TodoListProps, TodoState> {
 
         return (
             <div>
-                <Row className="mt-4 mb-4">
+                <Row className='mt-4 mb-4'>
                     <Col sm={10}>
                         <Input
-                            className="mb-sm-2"
-                            name="todoName"
+                            className='mb-sm-2'
+                            name='todoName'
                             value={this.state.todoName}
                             onChange={this.handleChange}
                             onKeyPress={this.handleKeyPress}
@@ -83,15 +83,15 @@ class TodoList extends React.Component<TodoListProps, TodoState> {
                     </Col>
                     <Col sm={2}>
                         <Button
-                            className="mb-sm-2"
-                            color="primary"
+                            className='mb-sm-2'
+                            color='primary'
                             onClick={this.submitTodo}
                         >
                             Add Todo
                         </Button>
                     </Col>
                 </Row>
-                <ul className="todo-list">
+                <ul className='todo-list'>
                     {todoItemsList && todoItemsList.length ? todoItemsList.map((item) => item && !item.status ? (
                         <TodoItem
                             key={item.id}
@@ -100,10 +100,12 @@ class TodoList extends React.Component<TodoListProps, TodoState> {
                         />
                     ) : undefined) : undefined}
                 </ul>
-                {completed && completed.length ? 
-                    <Button color="info" onClick={this.displayCompleted}>{`${this.state.isOpen ? 'Hide' : 'Display'} Completed Todo`}</Button>
+                {completed && completed.length ?
+                    <Button color='info' onClick={this.displayCompleted}>
+                        {`${this.state.isOpen ? 'Hide' : 'Display'} Completed Todo`}
+                    </Button>
                 : undefined}
-                <ul className="mt-4">
+                <ul className='mt-4'>
                     {this.state.isOpen && completed && completed.length ? completed.map((item) =>  (
                         <TodoItem
                             key={item.id}
@@ -118,8 +120,8 @@ class TodoList extends React.Component<TodoListProps, TodoState> {
 }
 
 const mapStateToProps = (state: any) => ({
+    completed: state.todo.completedList,
     todoItemsList: state.todo.list,
-    completed: state.todo.completedList
 });
 
 export default connect(mapStateToProps)(TodoList);

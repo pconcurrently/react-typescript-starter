@@ -9,8 +9,8 @@ interface TodoList {
 }
 
 const initialState: TodoList = {
+    completedList: [],
     list: [],
-    completedList: []
 };
 
 /* TYPES */
@@ -26,16 +26,15 @@ export const getTodo = () => {
             const list = JSON.parse(localStorage.getItem('todoList'));
             const compList = JSON.parse(localStorage.getItem('compList'));
             dispatch({
-                type: GET,
+                completedList: compList,
                 list,
-                completedList: compList
+                type: GET,
             });
         } catch (err) {
-            console.log(err);
             dispatch({
-                type: GET,
+                completedList: [],
                 list: [],
-                completedList: []
+                type: GET,
             });
         }
     };
@@ -44,8 +43,8 @@ export const getTodo = () => {
 export const addTodo = (input: string) => {
     return (dispatch: any) => {
         dispatch({
+            name: input,
             type: ADD,
-            name: input
         });
     };
 };
@@ -53,8 +52,8 @@ export const addTodo = (input: string) => {
 export const updateTodo = (todo: Todo) => {
     return (dispatch: any) => {
         dispatch({
+            todo,
             type: UPDATE,
-            todo
         });
     };
 };
@@ -62,17 +61,17 @@ export const updateTodo = (todo: Todo) => {
 export const removeTodo = (todo: Todo) => {
     return (dispatch: any) => {
         dispatch({
+            todo,
             type: REMOVE,
-            todo
         });
     };
 };
 
 /* SELECTORS */
 
-
 /* REDUCER */
-export const todoReducer = (state = initialState, action: { type: string, name: string, list: Todo[], completedList: Todo[], todo: Todo }) => {
+export const todoReducer = (
+    state = initialState, action: { type: string, name: string, list: Todo[], completedList: Todo[], todo: Todo }) => {
     let tempList: Todo[];
     let tempCompList: Todo[];
     switch (action.type) {
@@ -80,7 +79,7 @@ export const todoReducer = (state = initialState, action: { type: string, name: 
             const newTodo: Todo = {
                 id: generateId(),
                 name: action.name,
-                status: false
+                status: false,
             };
             tempList = state.list;
             tempList.push(newTodo);
@@ -88,17 +87,17 @@ export const todoReducer = (state = initialState, action: { type: string, name: 
             localStorage.setItem('todoList', JSON.stringify(tempList));
             return {
                 ...state,
-                list: tempList || []
+                list: tempList || [],
             };
         case GET:
             return {
                 ...state,
+                completedList: action.completedList || [],
                 list: action.list || [],
-                completedList: action.completedList || []
             };
         case UPDATE:
             tempCompList = state.completedList || [];
-            tempList = state.list.filter(todo => {
+            tempList = state.list.filter((todo) => {
                 if (todo.id === action.todo.id) {
                     todo.status = true;
                     tempCompList.push(todo);
@@ -109,22 +108,22 @@ export const todoReducer = (state = initialState, action: { type: string, name: 
             localStorage.setItem('compList', JSON.stringify(tempCompList));
             return {
                 ...state,
+                completedList: tempCompList,
                 list: tempList,
-                completedList: tempCompList
             };
         case REMOVE:
-            tempList = state.list.filter(todo => {
+            tempList = state.list.filter((todo) => {
                 return todo.id !== action.todo.id;
             });
-            tempCompList = state.completedList.filter(todo => {
+            tempCompList = state.completedList.filter((todo) => {
                 return todo.id !== action.todo.id;
             });
             localStorage.setItem('todoList', JSON.stringify(tempList));
             return {
                 ...state,
+                completedList: tempCompList,
                 list: tempList,
-                completedList: tempCompList
-            }
+            };
         default:
             return state;
     }
@@ -135,10 +134,10 @@ export const todoReducer = (state = initialState, action: { type: string, name: 
 const ALPHABET = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const ID_LENGTH = 8;
 
-const generateId = function () {
+const generateId = () => {
     let rtn = '';
     for (let i = 0; i < ID_LENGTH; i++) {
         rtn += ALPHABET.charAt(Math.floor(Math.random() * ALPHABET.length));
     }
     return rtn;
-}
+};

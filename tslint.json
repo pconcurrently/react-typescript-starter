@@ -1,5 +1,5 @@
 {
-    "extends": "tslint:latest tslint:react",
+    "extends": "tslint:latest",
     "alwaysShowStatus": true,
     "rules": {
         // override tslint-react rules here
@@ -14,6 +14,9 @@
                 },
                 "esSpecCompliant": true
             }
-        ]
+        ],
+        "quotemark": [true, "single"],
+        "member-access": false,
+        "interface-name": false
     }
 }

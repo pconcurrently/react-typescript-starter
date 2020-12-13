@@ -6,6 +6,8 @@
 [![Code Climate](https://codeclimate.com/github/shortgiraffe4/react-typescript-starter.svg)](https://codeclimate.com/github/shortgiraffe4/react-typescript-starter)
 
 React Typescript Starter is a boilerplate built on top of React and Typescript using Webpack 4.
+
+This repository is no longer maintained. Please take a look at my new template: https://github.com/shortgiraffe4/react-nextjs-boilerplate
 ### Stack
 - [React](https://reactjs.org/)
 - [Typescript](https://www.typescriptlang.org/)
